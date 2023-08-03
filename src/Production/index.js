@@ -12,6 +12,7 @@ export default function WidgetGS1() {
     const [instVisible, setInstVisible] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [loading, setLoading] = useState(false);
+    console.log(currentProduct, 'currentProduct');
 
     useEffect(() => {
         if (!currentProduct) return;
@@ -48,8 +49,7 @@ export default function WidgetGS1() {
                     margin: '0 auto', marginTop: '5%', maxHeight: '650px', // set the maximum height of the div
                     overflowY: 'auto'
                 }}>
-                    {/* Your card content goes here */}
-                    {!currentProduct && <SyncfoniaForm setCurrentProduct={setCurrentProduct} />}
+                    {(currentProduct === null) && <SyncfoniaForm setCurrentProduct={setCurrentProduct} />}
                     {!!currentProduct && <CardEcommerce currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} />}
                 </Card>
                 {!!currentProduct && 

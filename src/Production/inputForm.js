@@ -9,7 +9,7 @@ import Syncfonia from './sync.png'
 
 export default function SyncfoniaForm({ setCurrentProduct }) {
   const [loading, setLoading] = useState(false);
-  const [displaySearch, setDisplaySearch] = useState(false);
+  const [displaySearch, setDisplaySearch] = useState(true);
   const [error, setErr] = useState(false);
   const [gtngln, setGtnGln] = useState({})
 
@@ -31,7 +31,7 @@ export default function SyncfoniaForm({ setCurrentProduct }) {
 
   const onFinish = async (values) => {
     setLoading(true);
-    const { GTIN, GLN } = values; // Destructure GTIN and GLN from the form values
+    const { GTIN, GLN } = values; 
     setGtnGln({GTIN, GLN});
     const response = await axios.post(API_URL, values);
     console.log(response.data, 'From the backend');
@@ -82,7 +82,7 @@ export default function SyncfoniaForm({ setCurrentProduct }) {
               </Button>
             )}
             <div style={{ marginLeft:'-5%', margin: '0 auto', display: 'flex', flexDirection: 'row', marginTop: '20px', maxWidth: '80%' }}>
-              <ReCaptcha setDisplaySearch={setDisplaySearch} />
+              {/* <ReCaptcha setDisplaySearch={setDisplaySearch} /> */}
             </div>
           </Form.Item>
         </div>

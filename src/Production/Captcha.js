@@ -37,6 +37,7 @@ export default function CaptchaImplemented({setDisplaySearch}) {
         let APIResponse = [];
 
         try {
+           // reemplazar con URL propio para hostear servicio de verificación
             let response = await Axios.post(`http://localhost:5001/verify-token`, {
                 reCAPTCHA_TOKEN: token,
                 Secret_Key: SECRET_KEY,

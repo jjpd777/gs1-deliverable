@@ -16,11 +16,8 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        
         <Route path="/syncfonia" element={<GS1Prod/>} />
-  
       </Routes>
-
     </Router>
   )
 }
