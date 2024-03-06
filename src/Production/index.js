@@ -43,18 +43,17 @@ export default function WidgetGS1() {
             background: '#FF5900', display: 'flex', flexDirection: 'column', height: '100vh',
             margin: '0 auto', backgroundColor: 'aliceblue'
         }}>
-
             <div style={{ width: '95%', maxWidth: '600px', margin: '0 auto', marginTop: '10hv', }}>
                 <Card style={{
                     margin: '0 auto', marginTop: '5%', maxHeight: '650px', // set the maximum height of the div
                     overflowY: 'auto'
                 }}>
-                    {(currentProduct === null) && <SyncfoniaForm setCurrentProduct={setCurrentProduct} />}
+                    { (currentProduct=== null)  && <SyncfoniaForm setCurrentProduct={setCurrentProduct} /> }
                     {!!currentProduct && <CardEcommerce currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} />}
                 </Card>
                 {!!currentProduct && 
                 <div style={{display: 'flex', justifyContent: 'flex-end', marginTop:'20px'}}>
-                    <InstructionsCard inputValue={inputValue} setInputValue={setInputValue}/>
+                    {/* <InstructionsCard inputValue={inputValue} setInputValue={setInputValue}/> */}
 
                     <Button
                     icon={!loading ? <BulbOutlined style={{ color: 'white' }} /> : <ClockCircleOutlined style={{ color: 'white'}} />}

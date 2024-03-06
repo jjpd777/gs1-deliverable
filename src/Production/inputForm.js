@@ -38,16 +38,13 @@ export default function SyncfoniaForm({ setCurrentProduct }) {
         'Content-Type': 'application/json', // Optional: Define the content type of your request
         'Access-Control-Allow-Origin': '*', // Optional: Include this only if you control the server and want to allow all origins
       },
-      body:{
-        GTIN
-      }
     };
-    
+    const data = {GTIN};
     // Use Axios to send a GET request with the included headers
-    const response = await axios.get(API_URL, config);
+    const response = await axios.post(API_URL, data ,config);
     // const response = await axios.get(API_URL, values);
     console.log(response.data, 'From the backend');
-    if (response.data.syncfonia.product_images) {
+    if (response.data.status === 200) {
       setCurrentProduct({ ...response.data, gtin_num: GTIN });
     } else {
       setErr(true);

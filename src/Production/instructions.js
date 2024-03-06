@@ -49,8 +49,7 @@ export default function WidgetGS1() {
                     overflowY: 'auto'
                 }}>
                     {/* Your card content goes here */}
-                    {!currentProduct && <SyncfoniaForm setCurrentProduct={setCurrentProduct} />}
-                    {!!currentProduct && <CardEcommerce currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} />}
+                    {/* {!!currentProduct ? <CardEcommerce currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} /> : <SyncfoniaForm setCurrentProduct={setCurrentProduct} />} */}
                 </Card>
                 {!!currentProduct && 
                 <div style={{display: 'flex', justifyContent: 'flex-end', marginTop:'20px'}}>
