@@ -1,9 +1,10 @@
 
 import axios from 'axios';
 import { Carousel, Divider, Card} from 'antd';
+import { API_URL } from './config';
 
 export async function callBackendCompletion(prompt_design) {
-    const response = await axios.post('https://openai-juan.herokuapp.com/api/chrome_request', {
+    const response = await axios.post('https://6fab6f8e-7d8e-4e6c-8072-6d971b547e78-00-a3vo3tlornmv.picard.replit.dev/api/ask', {
       prompt_request: prompt_design,
       origin: 'gs1-production',
     }, {
@@ -11,7 +12,8 @@ export async function callBackendCompletion(prompt_design) {
         'Content-Type': 'application/json'
       }
     });
-    return response;
+    console.log(response)
+    return response.response;
   };
 
 export function PhotoSlider({ photos }) {

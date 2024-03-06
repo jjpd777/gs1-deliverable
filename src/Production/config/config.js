@@ -1,6 +1,6 @@
 
 
-export const API_URL = true ? 'https://openai-juan.herokuapp.com/api/syncfonia' : 'http://localhost:5001/api/syncfonia';
+export const API_URL = true ? 'https://syncfonia.replit.app/api/syncfonia' : 'http://localhost:5001/api/syncfonia';
 
 export const DESCRIPTIONS_PROMPT = "";
 

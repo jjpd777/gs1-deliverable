@@ -11,22 +11,19 @@ export async function fetchFullDescriptions( currentProduct, inputValue, setCurr
     const prompt_kw = inputValue + keywordsPrompt + api_syncfonia;
 
     try {
-      const [fetchBackend, fetchBulletPoints, fetchKeyWords] = await Promise.all([
+      const [fetchBackend ] = await Promise.all([
         callBackendCompletion(prompt_fd),
-        callBackendCompletion(prompt_bp),
-        callBackendCompletion(prompt_kw)
+       
       ]);
 
       console.log(fetchBackend)
 
 
-      setCurrentProduct(curr => ({ ...curr, prod_tags: fetchKeyWords.data?.res?.split('&&&') || []}));
-      setCurrentProduct(curr => ({ ...curr, bulletpoints: fetchBulletPoints.data.res || "Error en generar texto" }));
-      setCurrentProduct(curr => ({ ...curr, description: fetchBackend.data?.res ||  "Error en generar texto"  }));
+      setCurrentProduct(curr => ({ ...curr, prod_tags: []}));
+      setCurrentProduct(curr => ({ ...curr, bulletpoints:  "Error en generar texto" }));
+      setCurrentProduct(curr => ({ ...curr, description: fetchBackend.data?.response ||  "Error en generar texto"  }));
 
     } catch (error) {
-        console.log(prompt_bp, prompt_fd, prompt_kw)
-
       console.error(error);
     }
   };
